@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABD Ara Seçimi 2026</title>
+<meta name="description" content="ABD 3 Kasım 2026 ara seçimleri: Temsilciler Meclisi, Senato ve valilik sonuçları; eyalet ve ilçe haritası, Türkçe.">
+<style>
+:root{--bg:#F2F4F7;--card:#fff;--ink:#141B26;--mut:#5B6675;--line:#DDE2EA;--und:#C9CFD8;--hold:.38;
+ --D:#2C6BD1;--R:#D23C3C;--O:#8C6BD0;--LIB:#D9A520;--GRN:#2E9E57;--warn:#B45309;--warnbg:#FEF3C7;--live:#0F7B3E;--livebg:#DCFCE7;--test:#6D28D9;--testbg:#EDE9FE}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E131B;--card:#161D28;--ink:#E6EBF2;--mut:#98A3B3;--line:#2A3444;--und:#3A4555;
+ --warn:#FBBF24;--warnbg:#3A2A06;--live:#4ADE80;--livebg:#0B2E1A;--test:#C4B5FD;--testbg:#2A1F4A}}
+:root[data-theme="dark"]{--bg:#0E131B;--card:#161D28;--ink:#E6EBF2;--mut:#98A3B3;--line:#2A3444;--und:#3A4555;--warn:#FBBF24;--warnbg:#3A2A06;--live:#4ADE80;--livebg:#0B2E1A;--test:#C4B5FD;--testbg:#2A1F4A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:0}h2{font-size:17px;margin:0 0 10px}h3{font-size:15px;margin:14px 0 6px}
+.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sub{color:var(--mut);font-size:13px}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-weight:700;font-size:12px;letter-spacing:.03em}
+.b-sim{background:var(--warnbg);color:var(--warn)}.b-live{background:var(--livebg);color:var(--live)}.b-test{background:var(--testbg);color:var(--test)}
+.banner{border-radius:10px;padding:10px 14px;margin:0 0 14px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;min-width:0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px}
+@media(max-width:900px){.grid3,.grid2{grid-template-columns:minmax(0,1fr)}}
+.hemi svg{width:100%;height:auto;display:block}
+.hemi circle{cursor:pointer}.hemi circle:hover{stroke:var(--ink);stroke-width:1.5}
+.tally{display:flex;justify-content:space-between;font-weight:700;font-size:20px;margin-top:4px}
+.tally small{font-weight:500;font-size:12px;color:var(--mut);display:block}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--mut);margin-top:6px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden;display:flex}
+.pvrow{display:grid;grid-template-columns:150px 1fr 70px;gap:8px;align-items:center;margin:6px 0;font-size:14px}
+.pvrow .bar{height:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#usmap svg,#stmap svg{width:100%;height:auto;display:block}
+#usmap path.st{stroke:var(--card);stroke-width:1;cursor:pointer}#usmap path.st:hover{stroke:var(--ink);stroke-width:2}
+#stmap path{stroke:var(--card);stroke-width:.4}#stmap path:hover{stroke:var(--ink);stroke-width:1}
+.tip{position:fixed;pointer-events:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,.18);z-index:9;max-width:280px;display:none}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--mut);font-weight:600}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.race{border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:10px}
+.race .hd{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--mut);margin-bottom:6px}
+.cand{display:grid;grid-template-columns:1fr auto 64px;gap:8px;align-items:center;margin:3px 0;font-size:14px}
+.win{font-weight:700}.win::after{content:" ✓";color:var(--live)}
+.dists{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.dist{border:1px solid var(--line);border-left-width:5px;border-radius:6px;padding:5px 7px;font-size:12px}
+.scroll{max-height:420px;overflow:auto}
+a{color:var(--D)}
+.note{font-size:12px;color:var(--mut)}
+select{font:inherit;padding:4px 6px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);max-width:100%}
+</style>
+</head>
+<body>
+<main>
+<div class="top">
+  <div><h1>ABD 2026 Ara Seçimleri <span id="badge" class="badge"></span></h1>
+  <div class="sub">3 Kasım 2026 · Temsilciler Meclisi (435) · Senato (35 koltuk seçimde) · 36 valilik · <span id="upd"></span></div></div>
+  <div class="sub" id="eevp" style="font-size:15px;color:var(--ink);font-weight:600"></div>
+</div>
+<div id="banner" class="banner" hidden></div>
+
+<div class="grid3">
+  <div class="card hemi"><h2>Temsilciler Meclisi</h2><div id="hH"></div><div class="tally" id="tH"></div><div class="note">Çoğunluk: 218</div></div>
+  <div class="card hemi"><h2>Senato</h2><div id="hS"></div><div class="tally" id="tS"></div><div class="note">Çoğunluk: 51 (50–50'de oyu başkan yardımcısı verir) · soluk koltuklar 2026'da seçimde değil</div></div>
+  <div class="card hemi"><h2>Valilikler</h2><div id="hG"></div><div class="tally" id="tG"></div><div class="note">36 eyalette seçim · soluk olanlar 2026'da seçimde değil</div></div>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h2>Eyalet haritası</h2>
+    <div class="tabs" id="maptabs"><button data-o="H" class="on">Meclis</button><button data-o="S">Senato</button><button data-o="G">Vali</button></div>
+    <div id="usmap">Harita yükleniyor…</div>
+    <div class="legend"><span><i class="sw" style="background:var(--D)"></i>Demokrat önde/kazandı</span><span><i class="sw" style="background:var(--R)"></i>Cumhuriyetçi önde/kazandı</span><span><i class="sw" style="background:var(--und)"></i>Seçim yok / sonuç yok</span><span>Koyu: AP kazananı ilan etti · açık: önde</span></div>
+    <div class="note">Eyalete tıklayın: ilçe (county) ve bölge sonuçları açılır.</div>
+  </div>
+  <div class="card">
+    <h2>Parti oy oranları</h2>
+    <div class="note" style="margin-bottom:6px">Temsilciler Meclisi yarışlarında partilerin ülke genelinde aldığı oyların toplamı</div>
+    <div id="pv"></div>
+    <h3>Yakın yarışlar</h3>
+    <div id="close" class="scroll" style="max-height:260px"></div>
+  </div>
+</div>
+
+<div class="card" id="state" hidden>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 id="stname" style="margin:0"></h2>
+  <select id="stsel" aria-label="Eyalet seç"></select></div>
+  <div class="grid2" style="margin-top:10px">
+    <div>
+      <div class="tabs" id="sttabs"></div>
+      <div id="stmap"></div>
+      <div class="note" id="stmapnote"></div>
+    </div>
+    <div><div id="stRaces"></div></div>
+  </div>
+  <h3>Temsilciler Meclisi bölgeleri</h3><div id="stDists" class="dists"></div>
+  <h3 id="ctyh">İlçe sonuçları</h3><div class="scroll"><table id="ctyTable"></table></div>
+</div>
+
+<div class="card note" id="foot"></div>
+</main>
+<div class="tip" id="tip"></div>
+<script>
+// Yayın sırasında build-site.js bu iki değeri doldurur.
+var BUILD = "a40785bf09";
+var DATABASE = "https://raw.githubusercontent.com/ulmocus-secim/abd-2026/main/";   // örn. https://raw.githubusercontent.com/<sahip>/<depo>/  (sonunda / var)
+var REPO = "ulmocus-secim/abd-2026";           // örn. ulmocus-secim/abd-2026-veri
+var GEO = ["https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/counties-albers-10m.json"];
+
+var PARTY = {
+  D:{n:"Demokrat Parti",c:"var(--D)",w:"https://tr.wikipedia.org/wiki/Demokrat_Parti_(Amerika_Birle%C5%9Fik_Devletleri)"},
+  R:{n:"Cumhuriyetçi Parti",c:"var(--R)",w:"https://tr.wikipedia.org/wiki/Cumhuriyet%C3%A7i_Parti_(Amerika_Birle%C5%9Fik_Devletleri)"},
+  LIB:{n:"Liberteryen Parti",c:"var(--LIB)",w:"https://tr.wikipedia.org/wiki/Liberteryen_Parti_(Amerika_Birle%C5%9Fik_Devletleri)"},
+  GRN:{n:"Yeşil Parti",c:"var(--GRN)",w:"https://tr.wikipedia.org/wiki/Ye%C5%9Fil_Parti_(Amerika_Birle%C5%9Fik_Devletleri)"},
+  IND:{n:"Bağımsız",c:"var(--O)",w:"https://tr.wikipedia.org/wiki/Ba%C4%9F%C4%B1ms%C4%B1z_siyaset%C3%A7i"}
+};
+function pInfo(p){return PARTY[p]||{n:p==="OTH"||!p?"Diğer / bağımsız":"Diğer ("+p+")",c:"var(--O)",w:PARTY.IND.w};}
+var HEX={D:[44,107,209],R:[210,60,60],O:[140,107,208]};
+var WIKI={H:"https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections",
+ S:"https://tr.wikipedia.org/wiki/2026_Amerika_Birle%C5%9Fik_Devletleri_Senatosu_se%C3%A7imleri",
+ G:"https://en.wikipedia.org/wiki/2026_United_States_gubernatorial_elections"};
+var ST={"01":["AL","Alabama"],"02":["AK","Alaska"],"04":["AZ","Arizona"],"05":["AR","Arkansas"],"06":["CA","Kaliforniya"],"08":["CO","Colorado"],"09":["CT","Connecticut"],"10":["DE","Delaware"],"11":["DC","Washington D.C."],"12":["FL","Florida"],"13":["GA","Georgia"],"15":["HI","Hawaii"],"16":["ID","Idaho"],"17":["IL","Illinois"],"18":["IN","Indiana"],"19":["IA","Iowa"],"20":["KS","Kansas"],"21":["KY","Kentucky"],"22":["LA","Louisiana"],"23":["ME","Maine"],"24":["MD","Maryland"],"25":["MA","Massachusetts"],"26":["MI","Michigan"],"27":["MN","Minnesota"],"28":["MS","Mississippi"],"29":["MO","Missouri"],"30":["MT","Montana"],"31":["NE","Nebraska"],"32":["NV","Nevada"],"33":["NH","New Hampshire"],"34":["NJ","New Jersey"],"35":["NM","New Mexico"],"36":["NY","New York"],"37":["NC","Kuzey Karolina"],"38":["ND","Kuzey Dakota"],"39":["OH","Ohio"],"40":["OK","Oklahoma"],"41":["OR","Oregon"],"42":["PA","Pensilvanya"],"44":["RI","Rhode Island"],"45":["SC","Güney Karolina"],"46":["SD","Güney Dakota"],"47":["TN","Tennessee"],"48":["TX","Teksas"],"49":["UT","Utah"],"50":["VT","Vermont"],"51":["VA","Virginia"],"53":["WA","Washington"],"54":["WV","Batı Virginia"],"55":["WI","Wisconsin"],"56":["WY","Wyoming"]};
+var BYPOST={};for(var f in ST)BYPOST[ST[f][0]]={fips:f,name:ST[f][1]};
+
+var RAW=null, RAWC=null, DATA=null, CTY=null, GEOJ=null, mapOffice="H", stOffice=null, curSt=null, lastSha=null;
+var fmt=new Intl.NumberFormat("tr-TR"), pct=function(x){return "%"+(Math.round(x*10)/10).toLocaleString("tr-TR")};
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+// ---------------- veri yükleme ----------------
+function getJSON(u){return fetch(u,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})}
+function base(){return DATABASE||"./"}
+function loadData(){
+  // Dalın son commit'ini sor (raw.githubusercontent dal adresleri ~5 dk önbellekli; commit adresi her zaman taze)
+  var shaP = REPO ? fetch("https://api.github.com/repos/"+REPO+"/commits/main",{headers:{Accept:"application/vnd.github.sha"},cache:"no-store"})
+      .then(function(r){return r.ok?r.text():null}).catch(function(){return null}) : Promise.resolve(null);
+  return shaP.then(function(sha){
+    if(sha && sha===lastSha && RAW) return false;
+    var b = sha&&DATABASE ? DATABASE.replace(/main\/$/,"")+sha+"/" : base();
+    var q = sha?"":"?t="+Date.now();
+    return Promise.all([getJSON(b+"data.json"+q),getJSON(b+"counties.json"+q)]).then(function(a){
+      if(BUILD && a[0].build && a[0].build!==BUILD){var k="abd-rl";try{if(sessionStorage.getItem(k)!==a[0].build){sessionStorage.setItem(k,a[0].build);location.reload();return false}}catch(e){}}
+      lastSha=sha; RAW=a[0]; RAWC=a[1]; return true;
+    });
+  });
+}
+
+// ---------------- simülasyon (gerçek sonuç yokken) ----------------
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+var SEED=(Math.random()*1e9)|0;
+function rnd(key){var t=(hash(key)+SEED)>>>0;t+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}
+function gauss(key){var u=rnd(key+"a")||1e-9,v=rnd(key+"b");return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+var RATING={"solid-dem":.66,"likely-dem":.57,"lean-dem":.525,"tossup":.5,"lean-rep":.475,"likely-rep":.43,"solid-rep":.34};
+var SIM_LEN=300000, SIM_HOLD=30000, SIM_T0=Date.now()-SIM_LEN*.2;
+function simClock(){var t=(Date.now()-SIM_T0)%(SIM_LEN+SIM_HOLD);return Math.min(1,t/SIM_LEN)}
+function closeOrder(st){var pc=RAW.pollClose||{},vals=Object.keys(pc).map(function(k){return +new Date(pc[k])}).filter(isFinite);
+  if(!pc[st]||!vals.length)return .3;var mn=Math.min.apply(null,vals),mx=Math.max.apply(null,vals);return mx>mn?(+new Date(pc[st])-mn)/(mx-mn):0}
+function simShares(r){
+  var base=(RATING[r.rating]||.5)+gauss(r.id)*.035, w=r.c.map(function(c,i){return c[1]==="D"?1:c[1]==="R"?1:.06+.05*rnd(r.id+i)});
+  var nD=r.c.filter(function(c){return c[1]==="D"}).length,nR=r.c.filter(function(c){return c[1]==="R"}).length;
+  var oth=w.reduce(function(a,x,i){return a+(r.c[i][1]!=="D"&&r.c[i][1]!=="R"?x:0)},0);
+  var two=1-Math.min(.35,oth*(nD&&nR?.3:1));
+  return r.c.map(function(c,i){var k=rnd(r.id+"s"+i)+.5;
+    if(c[1]==="D")return nR?two*base*k/(nD?sumK(r,"D"):1):two*k/sumK(r,"D");
+    if(c[1]==="R")return nD?two*(1-base)*k/(nR?sumK(r,"R"):1):two*k/sumK(r,"R");
+    return (1-two)*w[i]/(oth||1)});
+}
+function sumK(r,p){var s=0;r.c.forEach(function(c,i){if(c[1]===p)s+=rnd(r.id+"s"+i)+.5});return s||1}
+function simRace(r,units,T){
+  var prog=Math.max(0,Math.min(1,(T-closeOrder(r.st)*.35)/.6*(0.8+.4*rnd(r.id+"p"))));if(T>=1)prog=1;
+  var sh=simShares(r), x=JSON.parse(JSON.stringify(r)), tot=r.c.map(function(){return 0}), ex=0, cnt=0, nu={};
+  var keys=units?Object.keys(units):[];
+  if(keys.length){keys.forEach(function(k){var u=units[k],e=u[2]||1,p=prog>=1?1:Math.min(1,prog*(.55+.9*rnd(k+r.id))),sw=gauss(k+r.id)*.09;
+      var vs=sh.map(function(s,i){var c=r.c[i][1];return Math.max(0,s+(c==="D"?sw:c==="R"?-sw:0))}),vsum=vs.reduce(function(a,b){return a+b},0)||1;
+      var v=vs.map(function(s){return Math.round(e*p*s/vsum)});v.forEach(function(n,i){tot[i]+=n});ex+=e;cnt+=e*p;nu[k]=[u[0],Math.round(p*100),e].concat(v)});
+  } else {ex=r.exp||100000;cnt=ex*prog;tot=sh.map(function(s){return Math.round(cnt*s)})}
+  x.c.forEach(function(c,i){c[2]=tot[i];c[3]=0});
+  x.eevp=Math.round(cnt/ex*100);x.tv=tot.reduce(function(a,b){return a+b},0);
+  var srt=tot.slice().sort(function(a,b){return b-a}),m=x.tv?(srt[0]-(srt[1]||0))/x.tv:0;
+  if(r.unc&&r.c.length===1&&prog>0||(prog>.15&&m>.18)||(prog>.6&&m>.05)||(prog>.97&&m>.004)){var wi=tot.indexOf(srt[0]);x.c[wi][3]=1;x.win=x.c[wi][1]}else x.win=null;
+  return {r:x,u:nu};
+}
+function simulate(){
+  var T=simClock(), d=JSON.parse(JSON.stringify(RAW)), c={S:{},G:{},H:{}};
+  ["S","G"].forEach(function(o){var list=o==="S"?d.senate.races:d.governor.races;
+    list.forEach(function(r,i){var slot=r.special?"special":"main",u=RAWC[o][r.st]&&RAWC[o][r.st][slot],s=simRace(r,u,T);list[i]=s.r;(c[o][r.st]=c[o][r.st]||{})[slot]=s.u})});
+  Object.keys(RAWC.H).forEach(function(st){c.H[st]={};Object.keys(RAWC.H[st]).forEach(function(k){var u=RAWC.H[st][k];c.H[st][k]=[u[0],0,u[2],{}]})});
+  var cntH={};
+  d.house.races=d.house.races.map(function(r){var s=simRace(r,null,T).r,f=r.exp?s.tv/r.exp:0;
+    (r.u||[]).forEach(function(u){var e=c.H[r.st]&&c.H[r.st][u[0]];if(!e)return;s.c.forEach(function(cd){e[3][cd[1]]=(e[3][cd[1]]||0)+Math.round(cd[2]*u[1]/(r.exp||1))});cntH[r.st+u[0]]=(cntH[r.st+u[0]]||0)+u[1]*s.eevp});return s});
+  Object.keys(c.H).forEach(function(st){Object.keys(c.H[st]).forEach(function(k){var e=c.H[st][k];e[1]=e[2]?Math.round((cntH[st+k]||0)/e[2]):0})});
+  var seats=function(l){var s={};l.forEach(function(r){if(r.win)s[r.win]=(s[r.win]||0)+1});return s};
+  d.house.seats=seats(d.house.races);d.senate.seats=seats(d.senate.races);d.governor.seats=seats(d.governor.races);
+  d.pv={};d.house.races.forEach(function(r){r.c.forEach(function(x){d.pv[x[1]]=(d.pv[x[1]]||0)+x[2]})});
+  var ex=0,cn=0;d.house.races.forEach(function(r){ex+=r.exp;cn+=r.exp*r.eevp/100});d.nat={eevp:ex?Math.round(cn/ex*100):0,tv:0,exp:ex};
+  d.simT=T;DATA=d;CTY=c;
+}
+
+// ---------------- yarım daire meclis ----------------
+function hemicycle(el,n,rows,groups,office){
+  // groups: [{p, k:sayı, faint:bool, label}]
+  var W=360,H=196,cx=180,cy=186,R=170,r0=R*.38,pts=[],tot=0,radii=[],i,j;
+  for(i=0;i<rows;i++){radii.push(r0+(R-r0)*i/(rows-1));tot+=radii[i]}
+  var per=radii.map(function(r){return Math.round(n*r/tot)}),diff=n-per.reduce(function(a,b){return a+b},0);per[rows-1]+=diff;
+  var dot=Math.min((R-r0)/(rows-1)*.42,Math.PI*radii[rows-1]/per[rows-1]*.45);
+  for(i=0;i<rows;i++)for(j=0;j<per[i];j++){var a=Math.PI-(per[i]===1?Math.PI/2:Math.PI*j/(per[i]-1));pts.push({a:a,x:cx+radii[i]*Math.cos(a),y:cy-radii[i]*Math.sin(a)})}
+  pts.sort(function(p,q){return q.a-p.a});
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Sandalye dağılımı">',k=0;
+  groups.forEach(function(g,gi){for(var m=0;m<g.k&&k<pts.length;m++,k++){var p=pts[k],col=g.p?pInfo(g.p).c:"var(--und)";
+    svg+='<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="'+dot.toFixed(2)+'" fill="'+col+'"'+(g.faint?' fill-opacity="var(--hold)"':'')+' data-g="'+gi+'"/>'}});
+  svg+='<line x1="'+cx+'" y1="'+(cy-R-6)+'" x2="'+cx+'" y2="'+(cy-r0+8)+'" stroke="var(--mut)" stroke-dasharray="3 3"/></svg>';
+  el.innerHTML=svg;
+  el.querySelectorAll("circle").forEach(function(c){var g=groups[+c.getAttribute("data-g")];
+    c.addEventListener("mousemove",function(e){tipShow(e,'<b>'+esc(g.p?pInfo(g.p).n:"Sonuç henüz belli değil")+'</b><br>'+esc(g.label))});
+    c.addEventListener("mouseleave",tipHide);
+    c.addEventListener("click",function(){window.open(g.p?pInfo(g.p).w:WIKI[office],"_blank","noopener")})});
+}
+function orderParties(seats){var ks=Object.keys(seats).filter(function(p){return p!=="D"&&p!=="R"});return ["D"].concat(ks,["R"])}
+function tally(el,seats,extra,maj){var d=(seats.D||0)+(extra&&extra.D||0),r=(seats.R||0)+(extra&&extra.R||0);
+  var o=0;Object.keys(seats).forEach(function(p){if(p!=="D"&&p!=="R")o+=seats[p]});if(extra)Object.keys(extra).forEach(function(p){if(p!=="D"&&p!=="R")o+=extra[p]});
+  el.innerHTML='<span style="color:var(--D)">'+d+'<small>Demokrat</small></span>'+(o?'<span style="color:var(--O)">'+o+'<small>Diğer</small></span>':'')+'<span style="color:var(--R);text-align:right">'+r+'<small>Cumhuriyetçi</small></span>';}
+function renderHemis(){
+  var hs=DATA.house.seats,called=0;Object.keys(hs).forEach(function(p){called+=hs[p]});
+  var g=[];orderParties(hs).forEach(function(p,i,arr){if(p==="R")g.push({p:null,k:435-called,label:(435-called)+" sandalye: AP henüz kazanan ilan etmedi"});if(hs[p])g.push({p:p,k:hs[p],label:hs[p]+" sandalye kazandı (AP ilanı)"})});
+  hemicycle($("hH"),435,11,g,"H");tally($("tH"),hs,null);
+  var sh=DATA.senate.hold||{},ss=DATA.senate.seats,sc=0;Object.keys(ss).forEach(function(p){sc+=ss[p]});
+  var holdSum=0;Object.keys(sh).forEach(function(p){holdSum+=sh[p]||0});
+  g=[{p:"D",k:sh.D||0,faint:1,label:(sh.D||0)+" koltuk 2026'da seçimde değil (Demokratlarla grup oluşturan 2 bağımsız dahil)"},{p:"D",k:ss.D||0,label:(ss.D||0)+" koltuk kazandı (AP ilanı)"}];
+  Object.keys(ss).forEach(function(p){if(p!=="D"&&p!=="R")g.push({p:p,k:ss[p],label:ss[p]+" koltuk kazandı (AP ilanı)"})});
+  if(sh.OTH)g.push({p:"IND",k:sh.OTH,faint:1,label:sh.OTH+" koltuk seçimde değil"});
+  g.push({p:null,k:100-holdSum-sc,label:(100-holdSum-sc)+" yarışta kazanan henüz belli değil"},{p:"R",k:ss.R||0,label:(ss.R||0)+" koltuk kazandı (AP ilanı)"},{p:"R",k:sh.R||0,faint:1,label:(sh.R||0)+" koltuk 2026'da seçimde değil"});
+  hemicycle($("hS"),100,6,g,"S");tally($("tS"),ss,{D:sh.D||0,R:sh.R||0,OTH:sh.OTH||0});
+  var nu=DATA.governor.notUp||{},nd={};Object.keys(nu).forEach(function(s){nd[nu[s]]=(nd[nu[s]]||0)+1});
+  var gs=DATA.governor.seats,gc=0;Object.keys(gs).forEach(function(p){gc+=gs[p]});
+  g=[{p:"D",k:nd.D||0,faint:1,label:(nd.D||0)+" valilik 2026'da seçimde değil"},{p:"D",k:gs.D||0,label:(gs.D||0)+" valilik kazandı (AP ilanı)"}];
+  Object.keys(gs).forEach(function(p){if(p!=="D"&&p!=="R")g.push({p:p,k:gs[p],label:gs[p]+" valilik kazandı"})});
+  g.push({p:null,k:36-gc,label:(36-gc)+" yarışta kazanan henüz belli değil"},{p:"R",k:gs.R||0,label:(gs.R||0)+" valilik kazandı (AP ilanı)"},{p:"R",k:nd.R||0,faint:1,label:(nd.R||0)+" valilik 2026'da seçimde değil"});
+  hemicycle($("hG"),50,4,g,"G");tally($("tG"),gs,nd);
+}
+
+// ---------------- parti oyları, yakın yarışlar ----------------
+function renderPV(){
+  var pv=DATA.pv||{},tot=0;Object.keys(pv).forEach(function(p){tot+=pv[p]});
+  var main=["D","R","LIB","GRN","IND"],oth=0,rows=[];
+  Object.keys(pv).forEach(function(p){if(main.indexOf(p)<0)oth+=pv[p]});
+  main.forEach(function(p){if(pv[p]!=null)rows.push([p,pv[p]])});rows.sort(function(a,b){return b[1]-a[1]});rows.push(["OTH",oth]);
+  $("pv").innerHTML=tot?rows.map(function(r){var s=r[1]/tot*100,i=pInfo(r[0]);
+    return '<div class="pvrow"><a href="'+i.w+'" target="_blank" rel="noopener" style="color:inherit">'+esc(i.n)+'</a><div class="bar"><span style="width:'+s+'%;background:'+i.c+'"></span></div><div style="text-align:right;font-variant-numeric:tabular-nums">'+pct(s)+'</div></div>'}).join("")+
+    '<div class="note">Toplam '+fmt.format(tot)+' oy</div>':'<div class="note">Henüz oy sayılmadı.</div>';
+  var all=[].concat(DATA.senate.races.map(function(r){return["Senato",r]}),DATA.governor.races.map(function(r){return["Vali",r]}),DATA.house.races.map(function(r){return["Meclis",r]}));
+  var cl=all.filter(function(x){return x[1].tv>0&&!x[1].win&&x[1].c.length>1}).map(function(x){var v=x[1].c.map(function(c){return c[2]}).sort(function(a,b){return b-a});return[x,(v[0]-v[1])/x[1].tv]}).sort(function(a,b){return a[1]-b[1]}).slice(0,12);
+  $("close").innerHTML=cl.length?'<table>'+cl.map(function(z){var x=z[0],r=x[1];var lead=r.c.slice().sort(function(a,b){return b[2]-a[2]})[0];
+    return '<tr style="cursor:pointer" data-st="'+r.st+'"><td>'+x[0]+' · '+esc(raceName(r))+'</td><td style="color:'+pInfo(lead[1]).c+'">'+esc(lead[0].split(" ").slice(-1)[0])+'</td><td class="n">'+pct(z[1]*100)+' fark</td><td class="n">%'+r.eevp+'</td></tr>'}).join("")+'</table>':'<div class="note">Kazananı belli olmamış, oy sayılan yarış yok.</div>';
+  $("close").querySelectorAll("tr").forEach(function(t){t.onclick=function(){openState(t.getAttribute("data-st"))}});
+}
+function raceName(r){var n=(BYPOST[r.st]||{}).name||r.st;return r.dist?n+" "+(r.dist==="0"||r.dist==="AL"?"(tek bölge)":r.dist+". bölge"):n+(r.special?" (ara seçim)":"")}
+
+// ---------------- harita ----------------
+function topoFeatures(topo,obj){
+  var tf=topo.transform,arcs=topo.arcs.map(function(a){var x=0,y=0;return a.map(function(p){x+=p[0];y+=p[1];return tf?[x*tf.scale[0]+tf.translate[0],y*tf.scale[1]+tf.translate[1]]:p})});
+  function ring(ix){var out=[];ix.forEach(function(i){var a=i<0?arcs[~i].slice().reverse():arcs[i];out.push.apply(out,out.length?a.slice(1):a)});return out}
+  return topo.objects[obj].geometries.map(function(g){var polys=g.type==="Polygon"?[g.arcs]:g.type==="MultiPolygon"?g.arcs:[];
+    var rings=[];polys.forEach(function(p){p.forEach(function(r){rings.push(ring(r))})});return{id:g.id,name:g.properties&&g.properties.name,rings:rings}})}
+function pathOf(f){return f.rings.map(function(r){return"M"+r.map(function(p){return p[0].toFixed(1)+","+p[1].toFixed(1)}).join("L")+"Z"}).join("")}
+function bbox(f){var b=[1e9,1e9,-1e9,-1e9];f.forEach(function(x){x.rings.forEach(function(r){r.forEach(function(p){if(p[0]<b[0])b[0]=p[0];if(p[1]<b[1])b[1]=p[1];if(p[0]>b[2])b[2]=p[0];if(p[1]>b[3])b[3]=p[1]})})});return b}
+function shade(p,m,called){var c=HEX[p==="D"||p==="R"?p:"O"],t=called?Math.min(1,.55+m*2.2):Math.min(.55,.22+m*2);
+  return"rgba("+c[0]+","+c[1]+","+c[2]+","+t.toFixed(2)+")"}
+function leadOf(cands){if(!cands||!cands.length)return null;var s=cands.slice().sort(function(a,b){return b[2]-a[2]}),t=0;cands.forEach(function(c){t+=c[2]});if(!t)return null;return{p:s[0][1],m:(s[0][2]-(s[1]?s[1][2]:0))/t,c:s[0]}}
+function stateRaces(o,st){var l=o==="S"?DATA.senate.races:o==="G"?DATA.governor.races:DATA.house.races;return l.filter(function(r){return r.st===st})}
+function stateColor(o,st){
+  if(o==="H"){var rs=stateRaces("H",st),pv={},t=0;if(!rs.length)return"var(--und)";rs.forEach(function(r){r.c.forEach(function(c){pv[c[1]]=(pv[c[1]]||0)+c[2];t+=c[2]})});
+    var ws={};rs.forEach(function(r){if(r.win)ws[r.win]=(ws[r.win]||0)+1});var allCalled=rs.every(function(r){return r.win});
+    if(!t)return"var(--und)";var arr=Object.keys(pv).map(function(p){return[p,pv[p]]}).sort(function(a,b){return b[1]-a[1]});return shade(arr[0][0],(arr[0][1]-(arr[1]?arr[1][1]:0))/t,allCalled)}
+  var r=stateRaces(o,st)[0];if(!r)return"var(--und)";if(r.win&&!r.tv)return shade(r.win,.3,1);var l=leadOf(r.c);return l?shade(l.p,l.m,!!r.win):"var(--und)"}
+function stateTip(o,st){var nm=(BYPOST[st]||{}).name||st,rs=stateRaces(o,st);
+  if(!rs.length)return"<b>"+esc(nm)+"</b><br>"+(o==="S"?"2026'da Senato seçimi yok":o==="G"?"2026'da valilik seçimi yok"+(DATA.governor.notUp&&DATA.governor.notUp[st]?" (mevcut: "+pInfo(DATA.governor.notUp[st]).n+")":""):"");
+  if(o==="H"){var ws={};rs.forEach(function(r){var k=r.win||"?";ws[k]=(ws[k]||0)+1});return"<b>"+esc(nm)+"</b> · "+rs.length+" bölge<br>"+Object.keys(ws).map(function(p){return(p==="?"?"Belli değil":pInfo(p).n)+": "+ws[p]}).join("<br>")}
+  return rs.map(function(r){return"<b>"+esc(raceName(r))+"</b> · sayılan %"+r.eevp+"<br>"+candLines(r.c,r.tv,3)}).join("<br>")}
+function candLines(c,tv,n){return c.slice().sort(function(a,b){return b[2]-a[2]}).slice(0,n).map(function(x){return'<span style="color:'+pInfo(x[1]).c+'">●</span> '+esc(x[0])+(x[3]?" ✓":"")+" "+(tv?pct(x[2]/tv*100):"")}).join("<br>")}
+var STATES=null,COUNTIES=null;
+function renderUS(){
+  if(!STATES)return;
+  var svg='<svg viewBox="0 0 975 610" role="img" aria-label="ABD eyalet haritası">';
+  STATES.forEach(function(f){var s=ST[f.id];if(!s)return;svg+='<path class="st" data-st="'+s[0]+'" d="'+pathOf(f)+'" fill="'+stateColor(mapOffice,s[0])+'"/>'});
+  $("usmap").innerHTML=svg+"</svg>";
+  $("usmap").querySelectorAll("path").forEach(function(p){var st=p.getAttribute("data-st");
+    p.addEventListener("mousemove",function(e){tipShow(e,stateTip(mapOffice,st))});p.addEventListener("mouseleave",tipHide);p.addEventListener("click",function(){openState(st)})});
+}
+
+// ---------------- eyalet paneli ----------------
+function openState(st){curSt=st;stOffice=null;$("state").hidden=false;$("stsel").value=st;renderState();$("state").scrollIntoView({behavior:"smooth",block:"start"})}
+function raceBox(title,r){if(!r)return"";var srt=r.c.slice().sort(function(a,b){return b[2]-a[2]});
+  return'<div class="race"><div class="hd"><b style="color:var(--ink)">'+esc(title)+'</b><span>sayılan %'+r.eevp+(r.win?" · AP: "+esc(pInfo(r.win).n):"")+'</span></div>'+
+  srt.map(function(c){var s=r.tv?c[2]/r.tv*100:0;return'<div class="cand"><span class="'+(c[3]?"win":"")+'"><span style="color:'+pInfo(c[1]).c+'">●</span> '+esc(c[0])+' <span class="note">'+esc(c[1])+(c[4]?" · görevde":"")+'</span></span><span class="note">'+fmt.format(c[2])+'</span><b style="text-align:right">'+(r.tv?pct(s):"–")+'</b></div><div class="bar" style="height:5px"><span style="width:'+s+'%;background:'+pInfo(c[1]).c+'"></span></div>'}).join("")+'</div>'}
+function renderState(){
+  if(!curSt)return;var st=curSt,nm=BYPOST[st].name;$("stname").textContent=nm;
+  var S=stateRaces("S",st),G=stateRaces("G",st),H=stateRaces("H",st);
+  var html="";S.forEach(function(r){html+=raceBox("Senato"+(r.special?" (ara seçim)":""),r)});
+  if(!S.length)html+='<div class="note race">2026\'da bu eyalette Senato seçimi yok.</div>';
+  G.forEach(function(r){html+=raceBox("Vali",r)});
+  if(!G.length)html+='<div class="note race">2026\'da valilik seçimi yok'+(DATA.governor.notUp[st]?" (mevcut vali: "+esc(pInfo(DATA.governor.notUp[st]).n)+")":"")+'.</div>';
+  $("stRaces").innerHTML=html;
+  $("stDists").innerHTML=H.map(function(r){var l=leadOf(r.c),col=r.win?pInfo(r.win).c:l?pInfo(l.p).c:"var(--und)";
+    return'<div class="dist" style="border-left-color:'+col+'"><b>'+(r.dist&&r.dist!=="0"?r.dist+". bölge":"Tek bölge")+'</b> · %'+r.eevp+'<br>'+candLines(r.c,r.tv,2)+'</div>'}).join("")||'<div class="note">Bölge verisi yok.</div>';
+  var opts=[];if(S.length)S.forEach(function(r){opts.push(["S"+(r.special?"special":"main"),"Senato"+(r.special?" (ara)":"")])});if(G.length)opts.push(["Gmain","Vali"]);opts.push(["H","Meclis (parti toplamı)"]);
+  if(!stOffice||!opts.some(function(o){return o[0]===stOffice}))stOffice=opts[0][0];
+  $("sttabs").innerHTML=opts.map(function(o){return'<button data-o="'+o[0]+'" class="'+(o[0]===stOffice?"on":"")+'">'+o[1]+'</button>'}).join("");
+  $("sttabs").querySelectorAll("button").forEach(function(b){b.onclick=function(){stOffice=b.getAttribute("data-o");renderState()}});
+  renderCounties();
+}
+function countyRows(){
+  var st=curSt,o=stOffice[0],slot=stOffice.slice(1),rows=[];
+  if(o==="H"){var hs=CTY.H[st]||{};Object.keys(hs).forEach(function(k){var e=hs[k],c=Object.keys(e[3]).map(function(p){return[pInfo(p).n,p,e[3][p],0]});rows.push({k:k,n:e[0],ev:e[1],c:c})});}
+  else{var r=stateRaces(o,st).filter(function(x){return(x.special?"special":"main")===slot})[0],u=(CTY[o][st]||{})[slot]||{};
+    if(r)Object.keys(u).forEach(function(k){var e=u[k];rows.push({k:k,n:e[0],ev:e[1],c:r.c.map(function(c,i){return[c[0],c[1],e[3+i]||0,0]})})});}
+  rows.forEach(function(x){x.tv=0;x.c.forEach(function(c){x.tv+=c[2]})});return rows;
+}
+function renderCounties(){
+  var rows=countyRows(),byK={};rows.forEach(function(r){byK[r.k]=r});
+  var fips=BYPOST[curSt].fips,feats=COUNTIES?COUNTIES.filter(function(f){return String(f.id).slice(0,2)===fips}):[];
+  var matched=feats.filter(function(f){return byK[f.id]}).length;
+  if(feats.length&&matched){var b=bbox(feats),pad=4,w=b[2]-b[0]+2*pad,h=b[3]-b[1]+2*pad;
+    var svg='<svg viewBox="'+(b[0]-pad)+' '+(b[1]-pad)+' '+w+' '+h+'" role="img" aria-label="İlçe haritası">';
+    feats.forEach(function(f){var r=byK[f.id],l=r&&leadOf(r.c);svg+='<path data-k="'+f.id+'" d="'+pathOf(f)+'" fill="'+(l?shade(l.p,l.m,r.ev>=95):"var(--und)")+'" style="stroke-width:'+(w/600).toFixed(2)+'"/>'});
+    $("stmap").innerHTML=svg+"</svg>";
+    $("stmap").querySelectorAll("path").forEach(function(p){var r=byK[p.getAttribute("data-k")];
+      p.addEventListener("mousemove",function(e){tipShow(e,r?"<b>"+esc(r.n)+"</b> · sayılan %"+r.ev+"<br>"+candLines(r.c,r.tv,3):"Veri yok")});p.addEventListener("mouseleave",tipHide)});
+    $("stmapnote").textContent=matched<rows.length?"Bazı birimler haritada eşleşmedi; tamamı aşağıdaki tabloda.":"Renk: önde olan parti; koyu ton = oyların %95'i sayıldı.";
+  } else {$("stmap").innerHTML="";$("stmapnote").textContent=rows.length?"Bu eyalette sonuçlar ilçe yerine başka birimlerle (ör. Alaska'da eyalet meclisi bölgeleri, Connecticut'ta planlama bölgeleri) veriliyor; harita yerine tabloya bakın.":"İlçe verisi yok.";}
+  rows.sort(function(a,b){return b.tv-a.tv});
+  var cands=rows[0]?rows[0].c.slice().sort(function(a,b){return b[2]-a[2]}).slice(0,3).map(function(c){return c[1]+"|"+c[0]}):[];
+  $("ctyh").textContent="İlçe sonuçları ("+rows.length+")";
+  $("ctyTable").innerHTML='<tr><th>İlçe</th><th class="n">Sayılan</th>'+cands.map(function(c){var p=c.split("|");return'<th class="n" style="color:'+pInfo(p[0]).c+'">'+esc(p[1].split(" ").slice(-1)[0])+'</th>'}).join("")+'<th class="n">Toplam oy</th></tr>'+
+    rows.map(function(r){return'<tr><td>'+esc(r.n)+'</td><td class="n">%'+r.ev+'</td>'+cands.map(function(c){var x=r.c.filter(function(y){return y[1]+"|"+y[0]===c})[0];return'<td class="n">'+(x&&r.tv?pct(x[2]/r.tv*100):"–")+'</td>'}).join("")+'<td class="n">'+fmt.format(r.tv)+'</td></tr>'}).join("");
+}
+
+// ---------------- genel ----------------
+var tip=$("tip");
+function tipShow(e,h){tip.innerHTML=h;tip.style.display="block";var x=e.clientX+14,y=e.clientY+14;if(x+290>innerWidth)x=e.clientX-290;if(y+tip.offsetHeight>innerHeight)y=e.clientY-tip.offsetHeight-10;tip.style.left=Math.max(4,x)+"px";tip.style.top=Math.max(4,y)+"px"}
+function tipHide(){tip.style.display="none"}
+function trTime(iso){try{return new Date(iso).toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})+" (TSİ)"}catch(e){return iso}}
+function renderHeader(){
+  var m=RAW.mode,b=$("badge"),bn=$("banner");
+  if(m==="pre"){b.className="badge b-sim";b.textContent="SİMÜLASYON";bn.hidden=false;bn.style.background="var(--warnbg)";bn.style.color="var(--warn)";
+    bn.innerHTML="⚠ SİMÜLASYON — gerçek sonuç değil. Rakamlar uydurmadır; sayfanın nasıl çalışacağını göstermek için tarayıcıda rastgele üretilir (yarış dereceleri: NYT; aday listeleri ve beklenen oy: AP/NYT). Gerçek sonuçlar ilk sandıklar kapanınca (4 Kasım 02:00 TSİ) kendiliğinden gelir. Simülasyon saati: %"+Math.round(DATA.simT*100);}
+  else if(m==="test"){b.className="badge b-test";b.textContent="TEST · 2024 VERİSİ";bn.hidden=false;bn.style.background="var(--testbg)";bn.style.color="var(--test)";
+    bn.textContent="TEST — bu ekran 2024 seçiminin gerçek sonuçlarıyla altyapı denemesidir; 2026 sonucu değildir.";}
+  else{b.className="badge b-live";b.textContent="GERÇEK VERİ";bn.hidden=true;}
+  $("upd").textContent=m==="pre"?"Kaynak dosya: "+trTime(RAW.updatedAt):"Son güncelleme: "+trTime(RAW.updatedAt);
+  $("eevp").textContent=(m==="pre"?"Simüle ":"")+"sayılan oy (AP tahmini): %"+DATA.nat.eevp;
+  $("foot").innerHTML="<b>Kaynak:</b> "+esc(RAW.source)+". Kazanan işareti (✓) yalnızca Associated Press (AP) bir yarışı ilan ettiğinde konur. "+
+   "“Sayılan oy” AP'nin beklenen toplam oya göre tahmini yüzdesidir (eevp). Senato'da seçimde olmayan 65 koltuk NYT/AP'den, seçimde olmayan 14 valilik "+
+   "<a href='https://en.wikipedia.org/wiki/2026_United_States_gubernatorial_elections' target='_blank' rel='noopener'>Vikipedi</a>'den. Harita: us-atlas (ABD Nüfus Bürosu). "+
+   "Ulmocus Seçim bağımsız bir sayfadır; resmi sonuçlar eyalet seçim kurullarının onayıyla kesinleşir.";
+}
+function renderAll(){if(!RAW)return;if(RAW.mode==="pre")simulate();else{DATA=RAW;CTY=RAWC}renderHeader();renderHemis();renderPV();renderUS();if(curSt)renderState()}
+$("maptabs").querySelectorAll("button").forEach(function(b){b.onclick=function(){mapOffice=b.getAttribute("data-o");$("maptabs").querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});renderUS()}});
+$("stsel").innerHTML=Object.keys(ST).filter(function(f){return f!=="11"}).map(function(f){return[ST[f][1],ST[f][0]]}).sort(function(a,b){return a[0].localeCompare(b[0],"tr")}).map(function(x){return'<option value="'+x[1]+'">'+x[0]+'</option>'}).join("");
+$("stsel").onchange=function(){openState(this.value)};
+function loadGeo(i){return getJSON(GEO[i]).catch(function(e){if(i+1<GEO.length)return loadGeo(i+1);throw e})}
+loadGeo(0).then(function(t){STATES=topoFeatures(t,"states");COUNTIES=topoFeatures(t,"counties");renderUS();if(curSt)renderState()}).catch(function(){$("usmap").textContent="Harita yüklenemedi; sonuçlar eyalet listesinden seçilebilir."});
+function refresh(){loadData().then(function(ch){if(ch)renderAll()}).catch(function(e){$("upd").textContent="Veri alınamadı, yeniden denenecek ("+e.message+")"})}
+refresh();
+setInterval(refresh,90000);
+setInterval(function(){if(RAW&&RAW.mode==="pre")renderAll()},4000);
+</script>
+</body>
+</html>
